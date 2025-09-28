@@ -1,13 +1,12 @@
 package com.example.demo.service;
 
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class UserService {
-
     @Async
     public void asyncMethodTest(){
-        System.out.println("Inside asyncMethodTest: "+ Thread.currentThread().getName());
+        System.out.println("Inside async method: "+ Thread.currentThread().getName());
     }
 }
