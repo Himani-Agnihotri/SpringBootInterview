@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 
 @RestController
-@RequestMapping(value="/api")
+@RequestMapping(value="/api9")
 public class UserController9 {
 
     @GetMapping(path="/get-user")

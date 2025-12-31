@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 
-@RestController
+/*@RestController
 @RequestMapping(value="/apicheck/")
 public class UserController2 {
 
@@ -32,4 +32,4 @@ public class UserController2 {
 
     }
 
-}
+}*/

@@ -8,15 +8,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping(value="/check")
+/*@RestController
+@RequestMapping(value = "/api")
 public class UserController3 {
-    @GetMapping(path="/user")
-    public ResponseEntity<?> getUs(){
-            throw new CustomException(HttpStatus.BAD_REQUEST,"User ID is missing");
+
+    @GetMapping(value = "/getResult")
+    public ResponseEntity<?> getResponse(){
+        throw new CustomException(HttpStatus.BAD_REQUEST, "Do not send bad requests");
     }
+
     @ExceptionHandler(CustomException.class)
-    public ResponseEntity<String> handleCustomException(CustomException ex){
-        return new ResponseEntity<>(ex.getMessage(),ex.getStatus());
+    public ResponseEntity<String> handleBadRequestException(CustomException exception){
+        return new ResponseEntity(exception.getMessage(),exception.getStatus());
     }
-}
+}*/

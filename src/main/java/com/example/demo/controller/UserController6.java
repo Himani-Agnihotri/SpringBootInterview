@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 
-@RestController
-@RequestMapping(value="/api")
-public class UserController6 {
+/*@RestController
+@RequestMapping("/api6")
+public class UserController6{
 
-    @GetMapping(path="/get-user")
-    public ResponseEntity<?> getUser(){
-        throw new CustomException(HttpStatus.BAD_REQUEST,"UserId is missing");
+    @RequestMapping("/getDetails")
+    public ResponseEntity<String> getUserDetails(){
+        throw new CustomException(HttpStatus.BAD_REQUEST, "Got User Details");
     }
 
     @ExceptionHandler(CustomException.class)
-    public void handleCustomException(CustomException ex, HttpServletResponse response) throws IOException {
-        response.sendError(ex.getStatus().value(),ex.getMessage());
+    public void handleCustomException(HttpServletResponse response, CustomException exception) throws IOException {
+        response.sendError(HttpStatus.BAD_REQUEST.value(), exception.getMessage());
     }
-}
+}*/
