@@ -7,16 +7,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.CompletableFuture;
+
 @RestController
 @RequestMapping("/orders")
 public class OrderController{
 
     @Autowired
-    private OrderService orderService;
+    OrderService orderService;
 
     @GetMapping("/{id}")
-    public String getOrders(@PathVariable String id){
-       return orderService.invokeProductAPI(id);
+    public CompletableFuture<String> getOrders(@PathVariable String id){
+        return orderService.invokeProductAPI(id);
     }
-
 }
