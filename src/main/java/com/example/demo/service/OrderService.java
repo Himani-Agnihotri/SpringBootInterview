@@ -6,19 +6,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class OrderService {
+public class OrderService{
 
     @Autowired
-    private RestTemplate restTemplate;
+    public RestTemplate restTemplate;
 
-    @Bulkhead(name="productService",type = Bulkhead.Type.SEMAPHORE,fallbackMethod = "productFallback")
+    @Bulkhead(name="productService",type= Bulkhead.Type.SEMAPHORE,fallbackMethod = "productFallback")
     public String invokeProductAPI(String id){
-        String url =  "http://localhost:8082/products/" + id;
-        String response = restTemplate.getForObject(url, String.class);
-        return "Response from Product API: " + response;
+        String url = "http://localhost:8082/products/" + id;
+        String response = restTemplate.getForObject(url,String.class);
+        return "Response From Product API: "+ response;
     }
 
     public String productFallback(String id, Throwable t){
         return "Too Many Concurrent Requests";
     }
+
 }
+
