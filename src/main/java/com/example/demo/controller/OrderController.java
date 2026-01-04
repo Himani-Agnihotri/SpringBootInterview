@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
-import com.example.demo.service.CustomRateLimiter;
+import com.example.demo.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,10 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/orders")
 public class OrderController {
 
+    @Autowired
+    private OrderService orderService;
+
     @GetMapping("/{id}")
-    @CustomRateLimiter(limit = 2, windowsInSeconds = 5)
-    public String getOrders(String id){
-        return "orders";
+    public String getOrders(@PathVariable String id) {
+        return orderService.invokeProductAPI(id);
     }
 
 }
