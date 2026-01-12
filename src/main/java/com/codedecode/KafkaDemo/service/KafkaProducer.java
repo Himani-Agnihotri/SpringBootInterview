@@ -5,13 +5,12 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KafkaProducer {
+public class KafkaProducer{
 
 	@Autowired
-	private KafkaTemplate<String, String> kafkaTemplate;
+	KafkaTemplate<String,String> kafkaTemplate;
 
-	public void sendMessageToTopic(String message) {
-		kafkaTemplate.send("CodeDecodeTopic", message);
+	public void sendMsg(String message){
+		kafkaTemplate.send("codeDecode_topic",message);
 	}
-
 }

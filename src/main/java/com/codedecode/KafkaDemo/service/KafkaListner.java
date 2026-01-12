@@ -4,10 +4,11 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KafkaListner {
+class KafkaListner{
 
-	@KafkaListener(topics = "CodeDecodeTopic", groupId = "codedecode-group")
-	public void listenToCodeDecodeKafkaTopic(String messageReceived) {
-		System.out.println("Message received is " + messageReceived);
+	@KafkaListener(topics = "codeDecode_topic", groupId = "codeDecode1")
+	public void listenToTopic(String message){
+		System.out.println("The message received is: "+ message);
 	}
+
 }
